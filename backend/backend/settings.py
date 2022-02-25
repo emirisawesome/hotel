@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ugj4$k5iidv%0)wi50kj#fd(l13z#4b79-+uc05$uip_g7xgn_'
+SECRET_KEY = 'django-insecure-jhq6h!1e3r2l@7@9nrpmrggkx5s40=n6zr7ya6%sq=u2kftlx!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,16 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gostinica'
-    'corsheaders'
+    # 'django.contrib.auth',
+    'drf_yasg',
+    'gostinica.apps.GostinicaConfig',
+    'rest_framework',
+    'corsheaders',
+    'djoser',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -71,6 +76,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:3030',
+# ]
+
 
 
 # Database
@@ -100,29 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'rest_framework.authtoken',
-    'x-csrftoken',
-    'x-requested-with',
 ]
 
 
