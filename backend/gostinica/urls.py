@@ -6,6 +6,7 @@ from .views import *
 router = DefaultRouter()
 router.register('menu', RoomView)
 router.register('room', MenuView)
+router.register('order',OrderView)
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [

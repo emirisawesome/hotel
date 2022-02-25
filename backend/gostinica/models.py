@@ -33,3 +33,8 @@ class Room(models.Model):
     time_left = models.CharField(max_length=100,choices=times)
     order = models.ForeignKey(Menu,on_delete=models.CASCADE,blank=True)
 
+class Order(models.Model):
+    name = models.CharField(max_length=100)
+    mobile = models.CharField(max_length=100)
+    comment = models.TextField()
+    total_price = models.IntegerField()
